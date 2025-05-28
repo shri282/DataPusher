@@ -1,5 +1,6 @@
 
 Before using API sync the db with the models
+
 await sequelize.sync({ force: false })
 
 account module
