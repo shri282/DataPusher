@@ -1,4 +1,5 @@
 import AccountService from "./AccountService";
+import axios from "axios";
 
 class DataPusherService {
 
@@ -7,8 +8,31 @@ class DataPusherService {
         const account = await accountService.findOne(accountId);
 
         for (let destination of account.destination) {
-            
+            const { url, httpMethod, headers } = destination;
+
+            // send as body
+            if (['POST', 'PUT'].includes(httpMethod)) {
+                await axios.request({
+                    url,
+                    method: httpMethod,
+                    data,
+                    headers
+                })
+
+                continue;
+            }
+
+            // send as query params
+            await axios.request({
+                url,
+                method: httpMethod,
+                params: data,
+                headers
+            })
         }
     }
 
 }
+
+
+export default DataPusherService;

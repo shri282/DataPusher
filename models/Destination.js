@@ -39,7 +39,7 @@ const Destination = sequelize.define('Destination', {
     timestamps: true
 });
 
-Account.hasMany(Destination, { foreignKey: 'account_id' });
+Account.hasMany(Destination, { foreignKey: 'account_id', as: 'destinations' });
 Destination.belongsTo(Account, { foreignKey: 'account_id' });
 
 export default Destination;

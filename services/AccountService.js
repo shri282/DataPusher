@@ -1,5 +1,6 @@
 import Account from "../models/Account.js";
 import { randomUUID } from 'crypto'
+import Destination from "../models/Destination.js";
 
 class AccountService {
 
