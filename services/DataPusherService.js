@@ -1,13 +1,10 @@
-import AccountService from "./AccountService.js";
 import axios from "axios";
 
 class DataPusherService {
 
     async pushData(account, data = null) {
-        const accountService = new AccountService();
-        const account = await accountService.findOne(account.accountId);
 
-        for (let destination of account.destination) {
+        for (let destination of account.destinations) {
             const { url, httpMethod, headers } = destination;
 
             // send as body

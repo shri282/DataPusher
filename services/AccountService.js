@@ -53,7 +53,13 @@ class AccountService {
         return Account.findOne({
             where: {
                 appSecret: secret
-            }
+            },
+            include: [
+                {
+                  model: Destination,
+                  as: 'destinations'
+                }
+            ]
         })
     }
 }
