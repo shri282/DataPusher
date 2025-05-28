@@ -1,7 +1,7 @@
 import AccountService from "../../services/AccountService.js";
 
-export const createDestinationValidator = (req, res, next) => {
-    const { accountId, httpMethod, url } = req.body.accountId;
+export const createDestinationValidator = async (req, res, next) => {
+    const { accountId, httpMethod } = req.body.accountId;
 
     if (!accountId) {
         return res.status(400).json({ error: 'account id not present' });
@@ -12,7 +12,7 @@ export const createDestinationValidator = (req, res, next) => {
     }
 
     const accountService = new AccountService();
-    const account = accountService.findOne(accountId);
+    const account = await accountService.findOne(accountId);
 
     if (!account) {
         return res.status(400).json({ error: 'account does not exist' });
