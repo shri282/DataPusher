@@ -1,5 +1,5 @@
 import express from 'express';
-import { pushData } from '../controllers/DataPusherController';
+import { pushData } from '../controllers/DataPusherController.js';
 
 const dataPusherRouter = express.Router();
 
