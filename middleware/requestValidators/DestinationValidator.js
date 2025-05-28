@@ -1,7 +1,7 @@
 import AccountService from "../../services/AccountService.js";
 
 export const createDestinationValidator = async (req, res, next) => {
-    const { accountId, httpMethod } = req.body.accountId;
+    const { accountId, httpMethod } = req.body;
 
     if (!accountId) {
         return res.status(400).json({ error: 'account id not present' });
