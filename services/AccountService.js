@@ -48,6 +48,14 @@ class AccountService {
             }
         })
     }
+
+    async findByAppSecret(secret) {
+        return Account.findOne({
+            where: {
+                appSecret: secret
+            }
+        })
+    }
 }
 
 export default AccountService;
