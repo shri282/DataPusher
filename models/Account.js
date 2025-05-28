@@ -23,16 +23,11 @@ const Account = sequelize.define('Accounts', {
         type: DataTypes.STRING,
         allowNull: false,
         field: 'app_secret'
-    },
-    createdAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        field: 'notifyCreated'
-    },
+    }
 },
 {
     tableName: 'accounts',
-    timestamps: false
+    timestamps: true
 }
 );
 
