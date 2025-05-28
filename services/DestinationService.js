@@ -1,4 +1,4 @@
-import Destination from "../models/Destination";
+import Destination from "../models/Destination.js";
 
 class DestinationService {
     async findOne(destinationId) {

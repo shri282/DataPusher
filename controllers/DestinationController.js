@@ -1,4 +1,4 @@
-import DestinationService from "../services/DestinationService"
+import DestinationService from "../services/DestinationService.js"
 
 const destinationService = new DestinationService();
 

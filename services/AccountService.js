@@ -4,7 +4,14 @@ import { randomUUID } from 'crypto'
 class AccountService {
 
     async findOne(accountId) {
-        return Account.findByPk(accountId);
+        return Account.findByPk(accountId, {
+            include: [
+              {
+                model: Destination,
+                as: 'destinations'
+              }
+            ]
+        });
     }
 
     async findAll() {
